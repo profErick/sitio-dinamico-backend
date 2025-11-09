@@ -645,3 +645,4 @@ Desarrollado para el proyecto sitio-dinamico.
 
 **Nota**: Asegúrate de cambiar el `SECRET_KEY` y configurar adecuadamente las variables de entorno antes de desplegar en producción.
 
+# sitio-dinamico-frontend
