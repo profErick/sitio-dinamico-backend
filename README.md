@@ -625,25 +625,3 @@ backend/
 └── README.md
 ```
 
-## 🤝 Contribuir
-
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT.
-
-## 👤 Autor
-
-Desarrollado para el proyecto sitio-dinamico.
-
----
-
-**Nota**: Asegúrate de cambiar el `SECRET_KEY` y configurar adecuadamente las variables de entorno antes de desplegar en producción.
-
-# sitio-dinamico-frontend
-# sitio-dinamico-backend
