@@ -4,6 +4,8 @@ Custom exception handler for consistent JSON error responses.
 from rest_framework.views import exception_handler
 from rest_framework.response import Response
 from rest_framework import status
+from django.conf import settings
+import traceback
 
 
 def custom_exception_handler(exc, context):
@@ -48,12 +50,20 @@ def custom_exception_handler(exc, context):
         response.data = custom_response_data
 
     else:
-        # Handle unexpected errors (500)
+        error_details = {
+            'detail': 'Ha ocurrido un error inesperado. Por favor, intenta más tarde.'
+        }
+        
+        if settings.DEBUG:
+            error_details['error_type'] = str(type(exc).__name__)
+            error_details['error_message'] = str(exc)
+            error_details['traceback'] = traceback.format_exc()
+        
         custom_response_data = {
             'error': True,
             'status_code': status.HTTP_500_INTERNAL_SERVER_ERROR,
             'message': 'Error interno del servidor',
-            'details': {'detail': 'Ha ocurrido un error inesperado. Por favor, intenta más tarde.'}
+            'details': error_details
         }
         response = Response(custom_response_data, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
